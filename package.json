@@ -1,0 +1,26 @@
+{
+  "name": "qa6webio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/register": "^7.10.1",
+    "@wdio/cli": "^6.1.15",
+    "@wdio/local-runner": "^6.1.14",
+    "@wdio/mocha-framework": "^6.1.14",
+    "@wdio/spec-reporter": "^6.1.14",
+    "@wdio/sync": "^6.1.14",
+    "chromedriver": "^83.0.0",
+    "wdio-chromedriver-service": "^6.0.3"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
