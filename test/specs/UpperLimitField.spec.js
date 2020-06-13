@@ -75,14 +75,6 @@ describe('Upper Limit field (ULF) ', () => {
         expect($(errorMsg)).toHaveText('ERROR: Upper Limit Must be GREATER than Lower Limit');
     });
 
-//    it('Verify that ULF input can be changed by clicking on spin box(up)', () => {
-//
-//    });
-
-//    it('Verify that ULF input data can be changed by clicking on spin box(down)', () => {
-
-//    });
-
     it('Verify that errorMsg pop up when LLF = 6 and ULF = 3 by default', () => {
         $(defaultLowerLimitField).click();
         $(lowerLimitField).click();
