@@ -1,6 +1,3 @@
-// let CounterTitle = browser.$('[data-testid="counter-name-input"]')
-// let InitialValue = browser.$('[data-testid="counter-value-input"]');
-// let btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
 
 describe('Add counter button tests', () => {
   before('open counter app', () => {
@@ -12,9 +9,9 @@ describe('Add counter button tests', () => {
     // CounterTitle.clearValue();
     CounterTitle.setValue(' ');
     CounterTitle.setValue('');
-    const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
+    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
     browser.pause(1000);
-    expect (btn.isDisplayed()).toEqual(false);
+    expect (btn.isEnabled()).toEqual(false);
   })
 
   // it('should verify that Add Counter Button is disabled with empty Default value field', (qualifiedName, value) => {
@@ -22,7 +19,7 @@ describe('Add counter button tests', () => {
   //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
   //   InitialValue.clearValue()
   //   const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]');
-  //   expect (btn.isDisplayed()).toEqual(false);
+  //   expect (btn.isEnabled()).toEqual(false);
   //   browser.pause(5000)
   // })
   //
@@ -34,8 +31,8 @@ describe('Add counter button tests', () => {
     CounterTitle.setValue(' ');
     CounterTitle.setValue('');
     InitialValue.clearValue()
-    const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed()).toEqual(false);
+    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+    expect (btn.isEnabled()).toEqual(false);
     browser.pause(1000);
   })
 
@@ -46,8 +43,8 @@ describe('Add counter button tests', () => {
     const InitialValue = browser.$('[data-testid="counter-value-input"]');
     CounterTitle.setValue('Hello!');
     InitialValue.setValue(1.4)
-    const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed()).toEqual(false);
+    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+    expect (btn.isEnabled()).toEqual(false);
     browser.pause(1000);
   })
 
@@ -58,8 +55,8 @@ describe('Add counter button tests', () => {
     const InitialValue = browser.$('[data-testid="counter-value-input"]');
     CounterTitle.setValue('@');
     InitialValue.setValue(50)
-    const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed()).toEqual(false);
+    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+    expect (btn.isEnabled()).toEqual(false);
     browser.pause(1000);
   })
 
@@ -69,8 +66,8 @@ describe('Add counter button tests', () => {
   //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
   //   CounterTitle.setValue('Counter 4');
   //   InitialValue.setValue('A')
-  //   const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-  //   expect (btn.isDisplayed()).toEqual(false);
+  //   const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+  //   expect (btn.isEnabled()).toEqual(false);
   //   browser.pause(1000);
   // }) // не принимает не цифры
 
@@ -81,8 +78,8 @@ describe('Add counter button tests', () => {
     const InitialValue = browser.$('[data-testid="counter-value-input"]');
     CounterTitle.setValue('123456');
     InitialValue.setValue(60)
-    const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed()).toEqual(false);
+    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+    expect (btn.isEnabled()).toEqual(false);
     browser.pause(1000);
   })
 
@@ -90,7 +87,7 @@ describe('Add counter button tests', () => {
     'data (50, Counter name)', () => {
     browser.refresh()
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed() && btn.isClickable()).toEqual(true);
+    expect (btn.isEnabled() && btn.isClickable()).toEqual(true);
     browser.pause(1000);
   })
 
@@ -102,7 +99,7 @@ describe('Add counter button tests', () => {
     InitialValue.setValue(100);
     CounterTitle.setValue('Counter 4');
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isDisplayed() && btn.isClickable()).toEqual(true);
+    expect (btn.isEnabled() && btn.isClickable()).toEqual(true);
     browser.pause(1000);
   })
 
