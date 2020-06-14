@@ -30,7 +30,6 @@ describe('Test Default State of Counter',() => {
         expect(actualAddBtn3Text).toHaveText(expAddBtn3Text);
      })
 
-
     it('should DELETE button have text DELETE', () => {
         const expDeleteBtn = 'DELETE';
         const actualDeleteBtn = $('//button[@id="1"]');
