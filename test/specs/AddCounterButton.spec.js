@@ -38,7 +38,6 @@ describe('Add counter button tests', () => {
   })
 
   it('should Verify that Add Counter Button is disabled when Default value = float num. && Add name < 7 chars', () => {
-    browser.refresh()
     $(CounterTitle).setValue('Hello!');
     $(InitialValue).setValue(1.4)
     expect ($(btn)).toBeDisabled();
@@ -52,21 +51,18 @@ describe('Add counter button tests', () => {
   // })
 
   it('should Verify that Add Counter Button is disabled when Default value = 50  && Add name = number', () => {
-    browser.refresh()
     $(CounterTitle).setValue(1);
     $(InitialValue).setValue(50)
     expect ($(btn)).toBeDisabled();
   })
 
   it('should Verify that Add Counter Button is disabled when Default value = 50  && Add name = "@"', () => {
-    browser.refresh()
     $(CounterTitle).setValue('@');
     $(InitialValue).setValue(50)
     expect ($(btn)).toBeDisabled();
   })
 
   it('should Verify that Add Counter Button is disabled when Default value = "E"  && Add name = "Counter 4"', () => {
-    browser.refresh()
     $(CounterTitle).setValue('Counter 4');
     $(InitialValue).click();
     $(InitialValue).getValue();
@@ -78,7 +74,6 @@ describe('Add counter button tests', () => {
   })
 
   it('should Verify that Add Counter Button is disabled when Default value = "60"  && Add name < 7 chars', () => {
-    browser.refresh()
     $(CounterTitle).setValue('123456');
     $(InitialValue).setValue(60)
     expect ($(btn)).toBeDisabled();
@@ -90,7 +85,6 @@ describe('Add counter button tests', () => {
   })
 
   it('should Verify "Add counter" button active if Default value = 100 and Add name = "Counter 4" ', () => {
-    browser.refresh()
     $(InitialValue).setValue(100);
     $(CounterTitle).setValue('Counter 4');
     expect ($(btn)).toBeEnabled();
