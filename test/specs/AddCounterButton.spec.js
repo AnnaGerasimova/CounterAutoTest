@@ -37,23 +37,28 @@ describe('Add counter button tests', () => {
     expect ($(btn)).toBeDisabled();
   })
 
-  it('should Verify that Add Counter Button is disabled when Default value field  = float number && Add name ' +
-    'field less then 7 chars', () => {
+  it('should Verify that Add Counter Button is disabled when Default value = float num. && Add name < 7 chars', () => {
     browser.refresh()
     $(CounterTitle).setValue('Hello!');
     $(InitialValue).setValue(1.4)
     expect ($(btn)).toBeDisabled();
   })
 
-  it('should Verify that Add Counter Button is disabled when Default value field = 50  && Add name ' +
-    'field = special character (@)', () => {
+  it('should Verify that Add Counter Button is disabled when Default value = 50  && Add name = number', () => {
+    browser.refresh()
+    $(CounterTitle).setValue(1);
+    $(InitialValue).setValue(50)
+    expect ($(btn)).toBeDisabled();
+  })
+
+  it('should Verify that Add Counter Button is disabled when Default value = 50  && Add name = "@"', () => {
     browser.refresh()
     $(CounterTitle).setValue('@');
     $(InitialValue).setValue(50)
     expect ($(btn)).toBeDisabled();
   })
 
-  it('should Verify that Add Counter Button is disabled when Default value field = "E"  && Add name field = "Counter 4"', () => {
+  it('should Verify that Add Counter Button is disabled when Default value = "E"  && Add name = "Counter 4"', () => {
     browser.refresh()
     $(CounterTitle).setValue('Counter 4');
     $(InitialValue).click();
@@ -63,25 +68,21 @@ describe('Add counter button tests', () => {
     }
     $(InitialValue).setValue('E')
     expect ($(btn)).toBeDisabled();
-    browser.pause(1000);
   })
 
-  it('should Verify that Add Counter Button is disabled when Default value field = "60"  && Add name field accept value ' +
-    'less then 7 chars ("123456")', () => {
+  it('should Verify that Add Counter Button is disabled when Default value = "60"  && Add name < 7 chars', () => {
     browser.refresh()
     $(CounterTitle).setValue('123456');
     $(InitialValue).setValue(60)
     expect ($(btn)).toBeDisabled();
   })
 
-  it('should Verify "Add counter" button active if Default value field and Add name field are filled with default ' +
-    'data (50, Counter name)', () => {
+  it('should Verify "Add counter" button active if Default value and Add name are filled with default data', () => {
     browser.refresh()
     expect ($(btn)).toBeEnabled();
   })
 
-  it('should Verify "Add counter" button active if Default value field = 100 and Add name field ' +
-    '= "Counter 4" ', () => {
+  it('should Verify "Add counter" button active if Default value = 100 and Add name = "Counter 4" ', () => {
     browser.refresh()
     $(InitialValue).setValue(100);
     $(CounterTitle).setValue('Counter 4');
@@ -95,7 +96,7 @@ describe('Add counter button tests', () => {
     expect (NewCounter).toBeDisplayed();
   })
 
-  it('should Verify that after a new counter has been added, its order number  = previous counters order number + 1 ', () => {
+  it('should Verify that after a new counter has been added, its order number = prev. counters order num. + 1 ', () => {
     const FirstCount = (browser.$('//h3[contains(text(),"1")]')).getText().split('')
     const SecondCount = (browser.$('//h3[contains(text(),"2")]')).getText().split('')
     const result = SecondCount[0]-FirstCount[0]
