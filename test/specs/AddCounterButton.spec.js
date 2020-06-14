@@ -103,7 +103,7 @@ describe('Add counter button tests', () => {
     browser.pause(1000);
   })
 
-  it('should Verify that new counter will appear after click after Add Counter Button is clicked with default fields', () => {
+  it('should Verify that new counter will appear after Add Counter Button is clicked with default fields', () => {
     browser.refresh()
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
     btn.click();
