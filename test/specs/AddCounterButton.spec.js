@@ -6,36 +6,36 @@ describe('Add counter button tests', () => {
 
   it('should verify that Add Counter Button is disabled with empty Add name field', () => {
     const CounterTitle = browser.$('[data-testid="counter-name-input"]')
-    // CounterTitle.clearValue();
+    //CounterTitle.clearValue();
     CounterTitle.setValue(' ');
     CounterTitle.setValue('');
     const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
     browser.pause(1000);
-    expect (btn.isEnabled()).toEqual(false);
+    expect (btn.isEnabled()).toBe(false);
   })
 
   // it('should verify that Add Counter Button is disabled with empty Default value field', (qualifiedName, value) => {
-  // browser.refresh()
+  //   browser.refresh()
   //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
-  //   InitialValue.clearValue()
+  //  // InitialValue.clearValue()
   //   const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]');
-  //   expect (btn.isEnabled()).toEqual(false);
+  //   expect (btn.isEnabled()).toBe(false);
   //   browser.pause(5000)
   // })
   //
-  it('should verify that Add Counter Button is disabled with empty Add name field and Default value field', () => {
-    browser.refresh()
-    const CounterTitle = browser.$('[data-testid="counter-name-input"]')
-    const InitialValue = browser.$('[data-testid="counter-value-input"]');
-   //CounterTitle.clearValue();
-    CounterTitle.setValue(' ');
-    CounterTitle.setValue('');
-    InitialValue.clearValue()
-    const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
-    expect (btn.isEnabled()).toEqual(false);
-    browser.pause(1000);
-  })
-
+  // it('should verify that Add Counter Button is disabled with empty Add name field and Default value field', () => {
+  //   browser.refresh()
+  //   const CounterTitle = browser.$('[data-testid="counter-name-input"]')
+  //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
+  //  //CounterTitle.clearValue();
+  //   CounterTitle.setValue(' ');
+  //   CounterTitle.setValue('');
+  //   InitialValue.clearValue()
+  //   const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
+  //   expect (btn.isEnabled()).toBe(false);
+  //   browser.pause(1000);
+  // })
+  //
   it('should Verify that Add Counter Button is disabled when Default value field  = float number && Add name ' +
     'field less then 7 chars', () => {
     browser.refresh()
@@ -44,7 +44,7 @@ describe('Add counter button tests', () => {
     CounterTitle.setValue('Hello!');
     InitialValue.setValue(1.4)
     const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
-    expect (btn.isEnabled()).toEqual(false);
+    expect (btn.isEnabled()).toBe(false);
     browser.pause(1000);
   })
 
@@ -56,18 +56,18 @@ describe('Add counter button tests', () => {
     CounterTitle.setValue('@');
     InitialValue.setValue(50)
     const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
-    expect (btn.isEnabled()).toEqual(false);
+    expect (btn.isEnabled()).toBe(false);
     browser.pause(1000);
   })
 
-  // it('should Verify that Add Counter Button is disabled when Default value field = "A"  && Add name field = "Counter 4"', () => {
+  // it('should Verify that Add Counter Button is disabled when Default value field = "E"  && Add name field = "Counter 4"', () => {
   //   browser.refresh()
   //   const CounterTitle = browser.$('[data-testid="counter-name-input"]')
   //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
   //   CounterTitle.setValue('Counter 4');
-  //   InitialValue.setValue('A')
+  //   InitialValue.setValue('E')
   //   const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
-  //   expect (btn.isEnabled()).toEqual(false);
+  //   expect (btn.isEnabled()).toBe(false);
   //   browser.pause(1000);
   // }) // не принимает не цифры
 
@@ -79,7 +79,7 @@ describe('Add counter button tests', () => {
     CounterTitle.setValue('123456');
     InitialValue.setValue(60)
     const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]')
-    expect (btn.isEnabled()).toEqual(false);
+    expect (btn.isEnabled()).toBe(false);
     browser.pause(1000);
   })
 
@@ -87,7 +87,7 @@ describe('Add counter button tests', () => {
     'data (50, Counter name)', () => {
     browser.refresh()
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isEnabled() && btn.isClickable()).toEqual(true);
+    expect (btn.isEnabled() && btn.isClickable()).toBe(true);
     browser.pause(1000);
   })
 
@@ -99,7 +99,7 @@ describe('Add counter button tests', () => {
     InitialValue.setValue(100);
     CounterTitle.setValue('Counter 4');
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect (btn.isEnabled() && btn.isClickable()).toEqual(true);
+    expect (btn.isEnabled() && btn.isClickable()).toBe(true);
     browser.pause(1000);
   })
 
@@ -108,14 +108,15 @@ describe('Add counter button tests', () => {
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
     btn.click();
     const NewCount = (browser.$('[class="container-fluid counter-wrapper"]'))
-    expect (NewCount.isDisplayed()).toEqual(true);
+    expect (NewCount.isDisplayed()).toBe(true);
     browser.pause(1000);
   })
 
   it('should Verify that after a new counter has been added, its order number  = previous counters order number + 1 ', () => {
-    const FirstCount = (browser.$('//h3[contains(text(),"1")]'))
-    const SecondCount = (browser.$('//h3[contains(text(),"2")]'))
-    expect (FirstCount.getText()).not.toEqual(SecondCount.getText());
-    browser.pause(1000);
+    const FirstCount = (browser.$('//h3[contains(text(),"1")]')).getText().split('')
+    const SecondCount = (browser.$('//h3[contains(text(),"2")]')).getText().split('')
+    const result = SecondCount[0]-FirstCount[0]
+    expect (result).toEqual(1)
+    console.log(FirstCount,SecondCount,result)
   })
 });
