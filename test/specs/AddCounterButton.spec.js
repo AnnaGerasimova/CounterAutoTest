@@ -18,7 +18,7 @@ describe('Add counter button tests', () => {
   // browser.refresh()
   //   const InitialValue = browser.$('[data-testid="counter-value-input"]');
   //   InitialValue.clearValue()
-  //   const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]');
+  //   const btn = browser.$('[class="btn-success btn Ripple-parent disabled add col-6"]');
   //   expect (btn.isEnabled()).toEqual(false);
   //   browser.pause(5000)
   // })
