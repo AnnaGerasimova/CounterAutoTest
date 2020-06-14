@@ -107,8 +107,8 @@ describe('Add counter button tests', () => {
     browser.refresh()
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
     btn.click();
-    const NewCount = (browser.$('[class="container-fluid counter-wrapper"]'))
-    expect (NewCount.isDisplayed()).toBe(true);
+    const NewCounter = (browser.$('[class="container-fluid counter-wrapper"]'))
+    expect (NewCounter.isDisplayed()).toBe(true);
     browser.pause(1000);
   })
 
