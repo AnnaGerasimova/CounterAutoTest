@@ -25,7 +25,7 @@ describe('Add counter button tests', () => {
     expect ($(btn)).toBeDisabled();
   })
 
-  it('should verify that Add Counter Button is disabled with empty Add name field and Default value field', () => {
+  it('should verify that Add Counter Button is disabled with empty Add name and Default value fields', () => {
     browser.refresh()
     $(CounterTitle).setValue(' ');
     $(CounterTitle).setValue('');
