@@ -1,7 +1,7 @@
 const InitialValue = '[data-testid="counter-value-input"]';
 const CounterTitle = '[data-testid="counter-name-input"]';
-const DisabledBtn = '[class="btn-success btn Ripple-parent disabled add col-6"]';
-const EnabledBtn = '[class="btn-success btn Ripple-parent add col-6"]';
+const btn = '.btn-success';
+
 
 
 describe('Add counter button tests', () => {
@@ -12,7 +12,7 @@ describe('Add counter button tests', () => {
   it('should verify that Add Counter Button is disabled with empty Add name field', () => {
     $(CounterTitle).setValue(' ');
     $(CounterTitle).setValue('');
-    expect (($(DisabledBtn)).isEnabled()).toBe(false)
+    expect (($(btn)).isEnabled()).toBe(false)
   })
 
   // it('should verify that Add Counter Button is disabled with empty Default value field', (qualifiedName, value) => {
@@ -22,7 +22,7 @@ describe('Add counter button tests', () => {
   //   //   $(InitialValue).keys('');
   //   // }
   //   $(InitialValue).clearValue()
-  //   expect ($(DisabledBtn).isEnabled()).toBe(false);
+  //   expect ($(btn).isEnabled()).toBe(false);
   // })
 
   it('should verify that Add Counter Button is disabled with empty Add name field and Default value field', () => {
@@ -30,7 +30,7 @@ describe('Add counter button tests', () => {
     $(CounterTitle).setValue(' ');
     $(CounterTitle).setValue('');
     $(InitialValue).clearValue()
-    expect ($(DisabledBtn).isEnabled()).toBe(false);
+    expect ($(btn).isEnabled()).toBe(false);
   })
 
   it('should Verify that Add Counter Button is disabled when Default value field  = float number && Add name ' +
@@ -38,7 +38,7 @@ describe('Add counter button tests', () => {
     browser.refresh()
     $(CounterTitle).setValue('Hello!');
     $(InitialValue).setValue(1.4)
-    expect ($(DisabledBtn).isEnabled()).toBe(false);
+    expect ($(btn).isEnabled()).toBe(false);
   })
 
   it('should Verify that Add Counter Button is disabled when Default value field = 50  && Add name ' +
@@ -46,14 +46,14 @@ describe('Add counter button tests', () => {
     browser.refresh()
     $(CounterTitle).setValue('@');
     $(InitialValue).setValue(50)
-    expect ($(DisabledBtn).isEnabled()).toBe(false);
+    expect ($(btn).isEnabled()).toBe(false);
   })
 
   // it('should Verify that Add Counter Button is disabled when Default value field = "E"  && Add name field = "Counter 4"', () => {
   //   browser.refresh()
   //   $(CounterTitle).setValue('Counter 4');
   //   $(InitialValue).setValue('E')
-  //   expect ($(DisabledBtn).isEnabled()).toBe(false);
+  //   expect ($(btn).isEnabled()).toBe(false);
   //   browser.pause(1000);
   // }) // не принимает не цифры
   //
@@ -62,14 +62,14 @@ describe('Add counter button tests', () => {
     browser.refresh()
     $(CounterTitle).setValue('123456');
     $(InitialValue).setValue(60)
-    expect ($(DisabledBtn).isEnabled()).toBe(false);
+    expect ($(btn)).not.toBeEnabled();
   })
 
   it('should Verify "Add counter" button active if Default value field and Add name field are filled with default ' +
     'data (50, Counter name)', () => {
     browser.refresh()
     const btn = browser.$('[class="btn-success btn Ripple-parent add col-6"]')
-    expect ($(EnabledBtn).isEnabled() && $(EnabledBtn).isClickable()).toBe(true);
+    expect ($(btn).isEnabled() && $(btn).isClickable()).toBe(true);
   })
 
   it('should Verify "Add counter" button active if Default value field = 100 and Add name field ' +
@@ -77,12 +77,12 @@ describe('Add counter button tests', () => {
     browser.refresh()
     $(InitialValue).setValue(100);
     $(CounterTitle).setValue('Counter 4');
-    expect ($(EnabledBtn).isEnabled() && $(EnabledBtn).isClickable()).toBe(true);
+    expect ($(btn).isEnabled() && $(btn).isClickable()).toBe(true);
   })
 
   it('should Verify that new counter will appear after Add Counter Button is clicked with default fields', () => {
     browser.refresh()
-    $(EnabledBtn).click();
+    $(btn).click();
     const NewCounter = (browser.$('[class="container-fluid counter-wrapper"]'))
     expect (NewCounter.isDisplayed()).toBe(true);
   })
