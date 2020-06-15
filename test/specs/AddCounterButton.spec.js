@@ -43,7 +43,7 @@ describe('Add counter button tests', () => {
     expect ($(btn)).toBeDisabled();
   })
 
-  // Bug report - CCA-206
+  // Bug report - CCA-402
   // it('should Verify that Add Counter But. is disabled when Default value = float num. && Add name - default', () => {
   //   browser.refresh()
   //   $(InitialValue).setValue(1.4)
