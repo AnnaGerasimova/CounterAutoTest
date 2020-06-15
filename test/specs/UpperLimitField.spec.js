@@ -15,7 +15,7 @@ describe('Upper Limit Field', () => {
     });
 
     it("should Delete X button should appears when ULF is active (on ULF left side)", () => {
-        expect($(deleteUlF)).toBePresent();
+        expect($(deleteUlF).isDisplayed());
     });
 
     it("Delete X button should disappear, after Delete X button is clicked ", () => {
@@ -24,7 +24,6 @@ describe('Upper Limit Field', () => {
     });
 
     it("should appears placeholder = 'Change Step Options?', after Delete X button is clicked, ", () => {
-        // $(deleteUlF).click();
         expect($(upperLimitField)).toHaveText('CHANGE STEP OPTIONS?')
     });
 
