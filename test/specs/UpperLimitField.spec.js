@@ -13,7 +13,7 @@ describe('Upper Limit field (ULF) ', () => {
         browser.url(homeUrl);
     });
 
-    it("ULF should have default value = 3, after ULF is active (clicked on placeholder)", () => {
+    it('ULF should have default value = 3, after ULF is active (clicked on placeholder)', () => {
         $(defaultUpperLimitField).click();
         expect($(upperLimitField)).toHaveValue('3')
     });
@@ -21,25 +21,19 @@ describe('Upper Limit field (ULF) ', () => {
     it("should Delete X button should appears when ULF is active (on ULF left side)", () => {
         expect($(deleteUlF).isDisplayed());
     });
+
     it("Delete X button should disappear, after Delete X button is clicked ", () => {
         $(deleteUlF).click();
         expect($(deleteUlF).isDisplayed()).toBe(false);
     });
+
     it("should appears placeholder = 'Change Step Options?', after Delete X button is clicked, ", () => {
         expect($(defaultUpperLimitField)).toHaveText('CHANGE STEP OPTIONS?')
     });
+
     it("ULF field should be cleared, after Delete X button is clicked.", () => {
         $(defaultUpperLimitField).click();
         expect($(defaultUpperLimitField)).toHaveValue('');
-    });
-
-});
-
-describe('Upper Limit field (ULF) ', () => {
-
-    beforeEach('open counter app', () => {
-        browser.url(homeUrl);
-        $(defaultUpperLimitField).click();
     });
 
     it('Verify that after ULF is active, default 3 can be changed to 4', () => {
@@ -56,7 +50,8 @@ describe('Upper Limit field (ULF) ', () => {
 
     it('Verify that errorMsg pop up when ULF is empty', () => {
         $(upperLimitField).click();
-        browser.keys('Backspace');
+        $(upperLimitField).setValue('5');
+        browser.keys('Back space');
         expect($(errorMsg)).toHaveText('ERROR: Input must be an INTEGER');
     });
 
@@ -106,9 +101,10 @@ describe('Upper Limit field (ULF) ', () => {
     });
 
     it('Verify that errorMsg pop up when LLF = 6 and ULF = 3 by default', () => {
+        browser.url(homeUrl);
         $(defaultLowerLimitField).click();
-        $(lowerLimitField).click();
         $(lowerLimitField).setValue('6');
         expect($(errorMsg)).toHaveText('ERROR: Lower Limit Must be Less than Upper Limit');
     });
+
 })
