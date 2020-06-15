@@ -1,4 +1,8 @@
 const homeUrl = 'https://likejean.github.io/homework-5/';
+const EditNameField = '//input[@id= "1"]';
+const addNameField = '//input[@data-testid="counter-name-input"]';
+const defaultValueField = '//input[@data-testid="counter-value-input"]';
+const addCounterBtn = '//button[@class = "btn-success btn Ripple-parent add col-6"]';
 
 describe('Test Default State of Counter',() => {
 
@@ -31,76 +35,60 @@ describe('Test Default State of Counter',() => {
      })
 
     it('should DELETE button have text DELETE', () => {
-        const expDeleteBtn = 'DELETE';
         const actualDeleteBtn = $('//button[@id="1"]');
-        expect(actualDeleteBtn).toHaveText(expDeleteBtn);
+        expect(actualDeleteBtn).toHaveText('DELETE');
     })
 
     it('should Edit name field be present', () => {
-        const EditNameField = $('//input[@id= "1"]');
-        expect(EditNameField).toBeDisplayed;
+        expect($(EditNameField)).toBeDisplayed;
     })
 
     it('should Edit name field contain "Default Counter" text', () => {
-         const EditNameFieldTxt = 'Default Counter';
-         const EditNameField = $('//input[@value="Default Counter"]');
-         expect(EditNameField).toHaveAttr('value', EditNameFieldTxt)
+        expect($(EditNameField)).toHaveValue('Default Counter');
      })
 
     it('should "Edit Counter Title:" text be present', () => {
-        const EditCounterTitleText = "Edit Counter Title:";
         const EditCounterTitle = $('//div[@class="container-fluid counter-wrapper"]//label');
-        expect(EditCounterTitle).toHaveText(EditCounterTitleText);
+        expect(EditCounterTitle).toHaveText("Edit Counter Title:");
     })
 
-    it('should RESET button be present', () => {
+    it('should RESET button have text "RESET"', ()=> {
         const resetButton = $('//button[@class="btn-primary btn Ripple-parent reset"]');
-        expect(resetButton).toBeDisplayed;
+        expect(resetButton).toHaveText("RESET");
     })
 
     it('should "Enter Counter Title:" text be present', () => {
-        const enterCounterTitleText = "Enter Counter Title:";
         const enterCounterTitle = $('//label[contains(text(),"Enter Counter Title")]');
-        expect(enterCounterTitle).toHaveText(enterCounterTitleText);
+        expect(enterCounterTitle).toHaveText("Enter Counter Title:");
      })
 
     it('should Add Name Field be present', () => {
-        const addNameField = $('//input[@data-testid="counter-name-input"]');
-        expect(addNameField).toBeDisplayed;
+        expect($(addNameField)).toBeDisplayed;
      })
 
     it('should Add Name Field contain "Counter Name" text', () => {
-        const addNameFieldTxt = 'Counter Name';
-        const addNameField = $('//input[@data-testid="counter-name-input"]');
-        expect(addNameField).toHaveAttr('value','Counter Name')
+        expect($(addNameField)).toHaveValue("Counter Name");
      })
 
     it('should "Enter Initial Count:" text be present', () => {
-        const enterInitialCountText = "Enter Initial Count:";
         const enterInitialCount = $('//label[contains(text(),"Enter Initial Count")]');
-        expect(enterInitialCount).toHaveText(enterInitialCountText);
+        expect(enterInitialCount).toHaveText("Enter Initial Count:");
     })
 
     it('should Default Value Field be present', () => {
-        const defaultValueField = $('//input[@data-testid="counter-value-input"]');
-        expect(defaultValueField).toBeDisplayed;
+       expect($(defaultValueField)).toBeDisplayed;
     })
 
     it('should Default Value Field contain "50" by default', () => {
-        const defaultValueFieldValue = "50";
-        const defaultValueField = $('//input[@data-testid="counter-value-input"]');
-        expect(defaultValueField).toHaveAttr('value',"50")
+        expect($(defaultValueField)).toHaveValue("50");
     })
 
     it('should Add Counter Button be present', () => {
-        const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
-        expect(addCounterBtn).toBeDisplayed;
+        expect($(addCounterBtn)).toBeDisplayed;
     })
 
     it('should Add Counter Button button have text "ADD COUNTER"', () => {
-        const addCounterBtnText = 'ADD COUNTER';
-        const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
-        expect(addCounterBtn).toHaveText(addCounterBtnText);
+        expect($(addCounterBtn)).toHaveText('ADD COUNTER');
     })
 
 })
