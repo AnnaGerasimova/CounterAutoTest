@@ -44,6 +44,21 @@ describe('Upper Limit field (ULF) ', () => {
         expect($(upperLimitField)).toHaveValue('2');
       });
 
+      // Bug report - CCA-136
+      it('Verify that ULF does not accept 10', () => {
+        $(upperLimitField).clearValue();
+        $(upperLimitField).setValue('10');
+        expect($(upperLimitField)).toHaveValue('');
+      });
+      // Bug report - CCA-218
+      it('Verify that add and sub buttons are not generated if ULF input value >=10', () => {
+        $(upperLimitField).clearValue();
+        $(upperLimitField).setValue('10');
+        let count = $$(subAndAddBtn);
+        expect(count).toBeElementsArrayOfSize({ lte: 18 });
+                      // ULF should accept only max value = 9, so add and sub btns should be  no more than 18
+      });
+
     it('Verify that errorMsg pop up when ULF = 10', () => {
        $(upperLimitField).click();
        $(upperLimitField).setValue('10');
