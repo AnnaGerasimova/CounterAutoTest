@@ -1,10 +1,10 @@
-let homeUrl = 'https://likejean.github.io/homework-5/';
-let defaultUpperLimitField = '//button[@name="positive"]';
-let defaultLowerLimitField = '//button[@name="negative"]';
-let upperLimitField = '//input[@name="upper"]';
-let lowerLimitField = '//input[@name="lower"]';
-let errorMsg = '//div[@class="alert alert-danger row align-items-center justify-content-center"]';
-let subAndAddBtn = '//button[@class="btn-black btn Ripple-parent"]';
+const homeUrl = 'https://likejean.github.io/homework-5/';
+const defaultUpperLimitField = '//button[@name="positive"]';
+const defaultLowerLimitField = '//button[@name="negative"]';
+const upperLimitField = '//input[@name="upper"]';
+const lowerLimitField = '//input[@name="lower"]';
+const errorMsg = '//div[@class="alert alert-danger row align-items-center justify-content-center"]';
+const subAndAddBtn = '//button[@class="btn-black btn Ripple-parent"]';
 
 
 describe('Upper Limit field (ULF) ', () => {
