@@ -36,15 +36,6 @@ describe('Upper Limit field (ULF) ', () => {
         expect($(defaultUpperLimitField)).toHaveValue('');
     });
 
-//});
-
-//describe('Upper Limit field (ULF) ', () => {
-//
-//    beforeEach('open counter app', () => {
-//        browser.url(homeUrl);
-//        $(defaultUpperLimitField).click();
-//    });
-
     it('Verify that after ULF is active, default 3 can be changed to 4', () => {
         $(upperLimitField).clearValue();
         $(upperLimitField).setValue('4');
