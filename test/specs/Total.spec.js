@@ -46,14 +46,13 @@ describe('TOTAL', () => {
         const totalResultInt = $(totalResult).getText().split(' ')[1];
         expect(totalResultInt).toBe('2');
     });
-
 // this test fails created bug report CCA-220
-   /* it('Verify that after delete 2-nd counter click on Add Button(+3)' +
+    it('Verify that after delete 2-nd counter click on Add Button(+3)' +
         'Total Value increase 2 + 3 => 5', () => {
         const addBtn3 = $('//div[@class="container-fluid counter-wrapper"][2]' +
             '//button[@class="btn-black btn Ripple-parent"][6]')
         addBtn3.click();
         const totalResultInt = $(totalResult).getText().split(' ')[1];
         expect(totalResultInt).toBe('5');
-    });*/
+    });
 });
