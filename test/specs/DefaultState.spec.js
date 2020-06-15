@@ -88,7 +88,8 @@ describe('Test Default State of Counter', () => {
     })
 
     it('should Add Counter Button button have text "ADD COUNTER"', () => {
-        expect($(addCounterBtn)).toHaveText('ADD COUNTER');
+        const addCounterBtnTxt = 'ADD COUNTER';
+        expect($(addCounterBtn)).toHaveText(addCounterBtnTxt);
     })
 
 })
