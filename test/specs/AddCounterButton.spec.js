@@ -16,7 +16,7 @@ describe('Add counter button tests', () => {
   })
 
   it('should verify that Add Counter Button is disabled with empty Default value field', () => {
-    browser.refresh()
+    $(CounterTitle).setValue('Counter Name')
     $(InitialValue).click();
     $(InitialValue).getValue();
     for(let i = 0; i < InitialValue.length; i++){
@@ -26,7 +26,6 @@ describe('Add counter button tests', () => {
   })
 
   it('should verify that Add Counter Button is disabled with empty Add name and Default value fields', () => {
-    browser.refresh()
     $(CounterTitle).setValue(' ');
     $(CounterTitle).setValue('');
     $(InitialValue).click();
@@ -42,13 +41,6 @@ describe('Add counter button tests', () => {
     $(InitialValue).setValue(1.4)
     expect ($(btn)).toBeDisabled();
   })
-
-  // Bug report - CCA-402
-  // it('should Verify that Add Counter But. is disabled when Default value = float num. && Add name - default', () => {
-  //   browser.refresh()
-  //   $(InitialValue).setValue(1.4)
-  //   expect ($(btn)).toBeDisabled();
-  // })
 
   it('should Verify that Add Counter Button is disabled when Default value = 50  && Add name = number', () => {
     $(CounterTitle).setValue(1);
@@ -80,7 +72,8 @@ describe('Add counter button tests', () => {
   })
 
   it('should Verify "Add counter" button active if Default value and Add name are filled with default data', () => {
-    browser.refresh()
+    $(CounterTitle).setValue('Counter Name');
+    $(InitialValue).setValue(50)
     expect ($(btn)).toBeEnabled();
   })
 
@@ -91,7 +84,8 @@ describe('Add counter button tests', () => {
   })
 
   it('should Verify that new counter will appear after Add Counter Button is clicked with default fields', () => {
-    browser.refresh()
+    $(CounterTitle).setValue('Counter Name');
+    $(InitialValue).setValue(50)
     $(btn).click();
     const NewCounter = browser.$('[class="container-fluid counter-wrapper"]')
     expect (NewCounter).toBeDisplayed();
