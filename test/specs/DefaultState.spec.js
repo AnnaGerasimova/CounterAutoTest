@@ -38,12 +38,12 @@ describe('Test Default State of Counter',() => {
 
     it('should Edit name field be present', () => {
         const EditNameField = $('//input[@id= "1"]');
-        expect(EditNameField).toBeExisting;
+        expect(EditNameField).toBeDisplayed;
     })
 
     it('should Edit name field contain "Default Counter" text', () => {
          const EditNameFieldTxt = 'Default Counter';
-         const EditNameField = $('//input[@id= "1"]');
+        const EditNameField = $('//input[@id= "1"]');
          expect(EditNameField).toHaveAttr('value', EditNameFieldTxt)
      })
 
@@ -55,7 +55,7 @@ describe('Test Default State of Counter',() => {
 
     it('should RESET button be present', () => {
         const resetButton = $('//button[@class="btn-primary btn Ripple-parent reset"]');
-        expect(resetButton).toBeExisting;
+        expect(resetButton).toBeDisplayed;
     })
 
     it('should "Enter Counter Title:" text be present', () => {
@@ -66,13 +66,13 @@ describe('Test Default State of Counter',() => {
 
     it('should Add Name Field be present', () => {
         const addNameField = $('//input[@data-testid="counter-name-input"]');
-        expect(addNameField).toBeExisting;
+        expect(addNameField).toBeDisplayed;
      })
 
     it('should Add Name Field contain "Counter Name" text', () => {
         const addNameFieldTxt = 'Counter Name';
         const addNameField = $('//input[@data-testid="counter-name-input"]');
-        expect(addNameField).toHaveAttr('value', addNameFieldTxt)
+        expect(addNameField).toHaveAttr('value','Counter Name')
      })
 
     it('should "Enter Initial Count:" text be present', () => {
@@ -83,17 +83,18 @@ describe('Test Default State of Counter',() => {
 
     it('should Default Value Field be present', () => {
         const defaultValueField = $('//input[@data-testid="counter-value-input"]');
-        expect(defaultValueField).toBeExisting;
+        expect(defaultValueField).toBeDisplayed;
     })
+
     it('should Default Value Field contain "50" by default', () => {
-        const defaultValueFieldValue = '50';
+        const defaultValueFieldValue = "50";
         const defaultValueField = $('//input[@data-testid="counter-value-input"]');
-        expect(defaultValueField).toHaveAttr('value', defaultValueFieldValue)
+        expect(defaultValueField).toHaveAttr('value',"50")
     })
 
     it('should Add Counter Button be present', () => {
         const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
-        expect(addCounterBtn).toBePresent;
+        expect(addCounterBtn).toBeDisplayed;
     })
 
     it('should Add Counter Button button have text "ADD COUNTER"', () => {
@@ -101,8 +102,6 @@ describe('Test Default State of Counter',() => {
         const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
         expect(addCounterBtn).toHaveText(addCounterBtnText);
     })
-
-
 
 })
 
