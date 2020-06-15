@@ -43,7 +43,7 @@ describe('Test Default State of Counter',() => {
 
     it('should Edit name field contain "Default Counter" text', () => {
          const EditNameFieldTxt = 'Default Counter';
-        const EditNameField = $('//input[@id= "1"]');
+         const EditNameField = $('//input[@value="Default Counter"]');
          expect(EditNameField).toHaveAttr('value', EditNameFieldTxt)
      })
 
