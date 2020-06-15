@@ -1,37 +1,35 @@
 const URL = "https://likejean.github.io/homework-5/";
-const ResetBtn = '//button[@class=\'btn-primary btn Ripple-parent reset\']'
+const resetBtn = '//button[@class=\'btn-primary btn Ripple-parent reset\']'
+
 describe("Reset btn", () => {
     before(() => {
         browser.url(URL);
     });
 
     it("Verify that reset btn click would reset a Total value to zero with only default counter on the page",  () => {
-      const BtnMinus3 = $('//button[@step= "-3"]');
-      BtnMinus3.click();
-      const Total = $('//h3[@class=\'total-count\']\n');
-      const check = Total.getText().split(' ')[1];
+      const btnMinus3 = $('//button[@step= "-3"]');
+      btnMinus3.click();
+      const total = $('//h3[@class=\'total-count\']\n');
+      const check = total.getText().split(' ')[1];
       const actual = '-3'
       expect(check).toEqual(actual);
-      $(ResetBtn).click();
-      const check2 = $('//h3[@class=\'total-count\']\n').getText()
+      $(resetBtn).click();
+      const check2 = $(total).getText()
       const actual2 = 'Total: 0';
       expect(check2).toBe(actual2);
-      browser.refresh();
 
     });
 
     it("Verify that reset btn click would reset a count value to zero",  () => {
-        const BtnMinus2 = $('//button[@step= "-2"]');
-        const BtnAdd1 = $('//button[@step= "1"]')
-        BtnMinus2.click()
-        BtnAdd1.click()
-        browser.pause(1000)
-        const CountValue = $('//span[@class=\'badge primary badge-primary\']')
-        const check = CountValue.getText();
+        const btnMinus2 = $('//button[@step= "-2"]');
+        const btnAdd1 = $('//button[@step= "1"]')
+        btnMinus2.click()
+        btnAdd1.click()
+        const countValue = $('//span[@class=\'badge primary badge-primary\']')
+        const check = countValue.getText();
         expect(check).toEqual('-1');
-        $(ResetBtn).click();
-        browser.pause(1000);
-        const check2 = CountValue.getText();
+        $(resetBtn).click();
+        const check2 = countValue.getText();
         expect(check2).toEqual('0');
     });
 
