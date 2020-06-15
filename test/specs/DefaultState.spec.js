@@ -92,13 +92,13 @@ describe('Test Default State of Counter',() => {
     })
 
     it('should Add Counter Button be present', () => {
-        const addCounterBtn = $('//div[@class="container"]//button');
+        const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
         expect(addCounterBtn).toBePresent;
     })
 
     it('should Add Counter Button button have text "ADD COUNTER"', () => {
         const addCounterBtnText = 'ADD COUNTER';
-        const addCounterBtn = $('//div[@class="container"]//button');
+        const addCounterBtn = $('//button[@class = "btn-success btn Ripple-parent add col-6"]');
         expect(addCounterBtn).toHaveText(addCounterBtnText);
     })
 
