@@ -40,7 +40,7 @@ describe('Test Default State of Counter', () => {
     })
 
     it('should Edit name field be present', () => {
-        expect($(EditNameField)).toBeDisplayed;
+        expect($(EditNameField)).toBeDisplayed();
     })
 
     it('should Edit name field contain "Default Counter" text', () => {
@@ -63,7 +63,7 @@ describe('Test Default State of Counter', () => {
     })
 
     it('should Add Name Field be present', () => {
-        expect($(addNameField)).toBeDisplayed;
+        expect($(addNameField)).toBeDisplayed();
     })
 
     it('should Add Name Field contain "Counter Name" text', () => {
@@ -76,7 +76,7 @@ describe('Test Default State of Counter', () => {
     })
 
     it('should Default Value Field be present', () => {
-        expect($(defaultValueField)).toBeDisplayed;
+        expect($(defaultValueField)).toBeDisplayed();
     })
 
     it('should Default Value Field contain "50" by default', () => {
@@ -84,7 +84,7 @@ describe('Test Default State of Counter', () => {
     })
 
     it('should Add Counter Button be present', () => {
-        expect($(addCounterBtn)).toBeDisplayed;
+        expect($(addCounterBtn)).toBeDisplayed();
     })
 
     it('should Add Counter Button button have text "ADD COUNTER"', () => {
