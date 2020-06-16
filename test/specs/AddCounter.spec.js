@@ -59,15 +59,47 @@ describe("Add counter", () => {
             browser.keys('Back space');
         }
         expect($(error).isDisplayed()).toEqual(false);
-
     });
 
     it("verify that Default Value Field accepts -10", () => {
         $(defaultValueField).setValue('-10');
         expect($(error).isDisplayed()).toEqual(false);
-
     });
 
+    it("should accept integer", () => {
+        $(addBtnCounter).setValue('2000001');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
+
+    it("should Error Message is displayed if value length is less then 7 ", () => {
+        $(addBtnCounter).setValue('Gj#js$');
+        expect($(error).isDisplayed()).toEqual(true);
+    });
+
+    it("should accept value with length is less then 7", () => {
+        $(addBtnCounter).setValue('Gj#js$h');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
+
+    it("should accept alphabet letters in Upper Case length is less then 7", () => {
+        $(addBtnCounter).setValue('ABCDEFJ');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
+
+    it("should accept alphabet letters in Lower Case length is less then 7", () => {
+        $(addBtnCounter).setValue('alicemo');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
+
+    it("should accept special length is less then 7", () => {
+        $(addBtnCounter).setValue('@!@#$%&');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
+
+    it("should accept floating numbers length is less then 7", () => {
+        $(addBtnCounter).setValue('3456.145');
+        expect($(error).isDisplayed()).toEqual(false);
+    });
 });
 
 
